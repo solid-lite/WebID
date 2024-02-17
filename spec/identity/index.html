@@ -8,7 +8,6 @@
   <meta content="Bikeshed version d5d58a306, updated Fri Jan 26 16:12:28 2024 -0800" name="generator">
   <link href="http://www.w3.org/TR/webid/" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="9d8d69583047bc30436168bd78456e1869301930" name="revision">
 <style>
 
     /* Reset base counters and additional ones */
@@ -557,7 +556,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Web Identity and Discovery</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-02-05">5 February 2024</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-02-17">17 February 2024</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -693,18 +692,11 @@ IP address on a given Server.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="webid">WebID</dfn>
     <dd data-md>
      <p>A WebID is a URI with an HTTP or HTTPS scheme that denotes an Agent (Person,
-Organization, Group, Device, etc.). For WebIDs with fragment identifiers
-(e.g., <code>#me</code>), the URI without the fragment denotes the WebID Profile
-Document. For WebIDs without fragment identifiers an HTTP request on the
-WebID <em class="rfc2119">MUST</em> return a 303 with a Location header URI referring to the WebID
-Profile Document.</p>
+Organization, Group, Device, etc.).</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="webid-profile-document">WebID Profile Document</dfn>
     <dd data-md>
-     <p>A WebID Profile Document is an RDF document that uniquely describes the
-Agent denoted by the WebID in relation to that WebID. The server <em class="rfc2119">MUST</em> provide a <code>text/turtle</code> <a data-link-type="biblio" href="#biblio-turtle" title="RDF 1.1 Turtle">[TURTLE]</a> representation of the requested
-profile. This document <em class="rfc2119">MAY</em> be available in other RDF serialization
-formats, such as RDFa <a data-link-type="biblio" href="#biblio-rdfa-core" title="RDFa Core 1.1 - Third Edition">[RDFA-CORE]</a>, or <a data-link-type="biblio" href="#biblio-rdf-syntax-grammar" title="RDF Test Cases">[RDF-SYNTAX-GRAMMAR]</a> if so
-requested through content negotiation.</p>
+     <p>A WebID Profile Document is a machine readable document that uniquely describes the
+Agent denoted by the WebID in relation to that WebID. The server <em class="rfc2119">MUST</em> provide machine readable that verifies that URI is an Agent, and therefore, a WebID.</p>
    </dl>
    <h3 class="heading settled" data-level="2.1" id="namespaces"><span class="secno">2.1. </span><span class="content">Namespaces</span><a class="self-link" href="#namespaces"></a></h3>
    <p>Examples assume the following namespace prefix bindings unless otherwise
@@ -740,7 +732,7 @@ WebID can be <code>https://bob.example.org/profile#me</code>.</p>
    <p><em>This section is non-normative.</em></p>
    <p>The relation between the <a data-link-type="dfn" href="#webid" id="ref-for-webid">WebID</a> URI and the <a data-link-type="dfn" href="#webid-profile-document" id="ref-for-webid-profile-document④">WebID Profile Document</a> is
 illustrated below.</p>
-   <p><img alt="WebID overview" class="full-width" height="851" id="webid-diagram" src="img/WebID-overview.png" width="1311"></p>
+   <p><img alt="WebID overview" class="full-width" id="webid-diagram" src="img/WebID-overview.png"></p>
    <p>The WebID URI — <em>"<a href="http://www.w3.org/People/Berners-Lee/card#i">http://www.w3.org/People/Berners-Lee/card<strong>#i</strong></a>"</em> (containing the <strong>#i</strong> hash tag) — is an identifier that denotes (refers to) a
 person or more generally an agent. In the above illustration, the referent is
 Tim Berners Lee, a real physical person who has a history, who invented the
